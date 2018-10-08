@@ -1,6 +1,6 @@
-#EJERCICIOS DEL TEMA 1
+# EJERCICIOS DEL TEMA 1
 
-##Buscar una aplicación de ejemplo, preferiblemente propia, y deducir qué patrón es el que usa. ¿Qué habría que hacer para evolucionar a un patrón tipo microservicios?
+## Buscar una aplicación de ejemplo, preferiblemente propia, y deducir qué patrón es el que usa. ¿Qué habría que hacer para evolucionar a un patrón tipo microservicios?
 
 Como ejemplo voy a usar un programa que realizamos para la asignatura Estructuras de Datos de la carrera de Ingeniería Informática de la UGR.
 
