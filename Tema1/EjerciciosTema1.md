@@ -11,4 +11,4 @@ Toda la aplicación estaba almacena de la manera usual en c++ (archivos de cabec
 Por lo tanto, se podría usar un micro servicio para la identificación, otro servicio encargado de traducir los datos de búsqueda en consultas SQL o lo que proceda, según la forma que estén almacenados los datos y, por último, otro servicio con la base de datos en sí.
 
 
-##En la aplicación que se ha usado como ejemplo en el ejercicio anterior, ¿podría usar diferentes lenguajes? ¿Qué almacenes de datos serían los más convenientes?
+## En la aplicación que se ha usado como ejemplo en el ejercicio anterior, ¿podría usar diferentes lenguajes? ¿Qué almacenes de datos serían los más convenientes?
