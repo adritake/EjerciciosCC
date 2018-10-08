@@ -12,3 +12,7 @@ Por lo tanto, se podría usar un micro servicio para la identificación, otro se
 
 
 ## En la aplicación que se ha usado como ejemplo en el ejercicio anterior, ¿podría usar diferentes lenguajes? ¿Qué almacenes de datos serían los más convenientes?
+
+La aplicación explicada en el ejercicio anterior estaba desarrollada en C++ pero por supuesto se podría desarrollar en cualquiero otro lenguaje como java o scala ya que permiten leer la base de datos y crear contenedores para trabajar con los datos.
+
+Los contenedores usados en la práctica eran los básicos de la librería STL de C++. Estos contenedores funcionaban perfectamente ya que la estructura de los datos era fija (Código del delito, lugar, tipo, etc). Por este mismo motivo se podría crear una base de datos SQL ya que las relaciones entre datos están bien definidas y no se prevee que sufra cambios en un futuro.
