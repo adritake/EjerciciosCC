@@ -6,4 +6,7 @@ Hecho
 
 ## Ejecutar un programa básico que trabaje con una base de datos en diferentes versiones del lenguaje. ¿Funciona en todas ellas?
 
+Se ha instalado mySQL en ubuntu.
+Se ha seguido este [tutorial](https://codeforgeek.com/2015/01/nodejs-mysql-tutorial/) para conectarse a una base de datos de mySQL con javascript.
+Se ha creado una base de datos en mySQL siguiendo este [tutorial](https://www.linux-party.com/42-mysql/2214-como-crear-una-base-de-datos-mysql-e-inicializar-los-privilegios).
 
