@@ -14,6 +14,6 @@ Se ha creado una base de datos en mySQL siguiendo este [tutorial](https://www.li
 
 Se ha creado una tabla en mySQL siguiendo este [tutorial](http://mysql.conclase.net/curso/?cap=007c).
 
-'CREATE TABLE IF NOT EXISTS porras ( nombre varchar(50), apuesta varchar(10), partido varchar (50), PRIMARY KEY (nombre) )ENGINE=InnoDB;'
+`CREATE TABLE IF NOT EXISTS porras ( nombre varchar(50), apuesta varchar(10), partido varchar (50), PRIMARY KEY (nombre) )ENGINE=InnoDB;`
 
 
