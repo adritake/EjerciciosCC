@@ -30,6 +30,12 @@ INSERT INTO porras VALUES ('OptimusPrime', '200-0', 'Autobots-Decepticons');
 
 - Una vez inicializado todo hay que ejecutar el programa usando el comando 'node index.js' y accediendo desde el navegador a la página [http://localhost:8000/](http://localhost:8000/).
 
-Solo se ha probado con una base de datos mySQL pero se podría operar con otro tipo de bases de datos sin problema siempre que se acceda correctamente desde el código javascript
+Solo se ha probado con una base de datos mySQL pero se podría operar con otro tipo de bases de datos sin problema siempre que se acceda correctamente desde el código javascript.
+
+## Crear una descripción del módulo usando package.json. En caso de que se trate de otro lenguaje, usar el método correspondiente.
+
+Ya se ha creado para el ejercicio anterior, ver [package.json](EjerciciosCC/Tema2/ProgramaPorra/package.json).
+
+
 
 
