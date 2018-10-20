@@ -1,10 +1,10 @@
 # EJERCICIOS DEL TEMA 2
 
-## Instalar alguno de los entornos virtuales de node.js (o de cualquier otro lenguaje con el que se esté familiarizado) y, con ellos, instalar la última versión existente, la versión minor más actual de la 4.x y lo mismo para la 0.11 o alguna impar (de desarrollo).
+## Ejercicio 1. Instalar alguno de los entornos virtuales de node.js (o de cualquier otro lenguaje con el que se esté familiarizado) y, con ellos, instalar la última versión existente, la versión minor más actual de la 4.x y lo mismo para la 0.11 o alguna impar (de desarrollo).
 
 Hecho
 
-## Ejecutar un programa básico que trabaje con una base de datos en diferentes versiones del lenguaje. ¿Funciona en todas ellas?
+## Ejercicio 2. Ejecutar un programa básico que trabaje con una base de datos en diferentes versiones del lenguaje. ¿Funciona en todas ellas?
 
 - Se ha instalado mySQL en ubuntu.
 
@@ -32,9 +32,15 @@ INSERT INTO porras VALUES ('OptimusPrime', '200-0', 'Autobots-Decepticons');
 
 Solo se ha probado con una base de datos mySQL pero se podría operar con otro tipo de bases de datos sin problema siempre que se acceda correctamente desde el código javascript.
 
-## Crear una descripción del módulo usando package.json. En caso de que se trate de otro lenguaje, usar el método correspondiente.
+## Ejercicio 3. Crear una descripción del módulo usando package.json. En caso de que se trate de otro lenguaje, usar el método correspondiente.
 
 Ya se ha creado para el ejercicio anterior, ver [package.json](ProgramaPorra/package.json).
+
+## Ejercicio 4. Descargar el repositorio de ejemplo anterior, instalar las herramientas necesarias (principalmente Scala y sbt) y ejecutar el ejemplo desde sbt. Alternativamente, buscar otros marcos para REST en Scala tales como Finatra o Scalatra y probar los ejemplos que se incluyan en el repositorio.
+
+
+- Clonar el [repositorio](https://github.com/JJ/spray-test) del ejemplo de los apuntes con `git clone git://github.com/JJ/spray-test my-project`.
+
 
 
 
