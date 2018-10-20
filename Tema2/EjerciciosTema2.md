@@ -41,6 +41,10 @@ Ya se ha creado para el ejercicio anterior, ver [package.json](ProgramaPorra/pac
 
 - Clonar el [repositorio](https://github.com/JJ/spray-test) del ejemplo de los apuntes con `git clone git://github.com/JJ/spray-test my-project`.
 
+- Insalar escala con este [tutorial](http://codigolinea.com/2015/04/05/instalando-scala-en-linux/).
+
+- Instala sbt siguiendo estos [pasos](https://www.scala-sbt.org/download.html).
+
 
 
 
