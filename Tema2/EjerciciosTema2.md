@@ -34,7 +34,7 @@ Solo se ha probado con una base de datos mySQL pero se podría operar con otro t
 
 ## Crear una descripción del módulo usando package.json. En caso de que se trate de otro lenguaje, usar el método correspondiente.
 
-Ya se ha creado para el ejercicio anterior, ver [package.json](EjerciciosCC/Tema2/ProgramaPorra/package.json).
+Ya se ha creado para el ejercicio anterior, ver [package.json](ProgramaPorra/package.json).
 
 
 
