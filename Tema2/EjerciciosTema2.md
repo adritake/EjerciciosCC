@@ -24,3 +24,12 @@ INSERT INTO porras VALUES ('Pepe', '2-2', 'Madrid-Barcelona');
 INSERT INTO porras VALUES ('OptimusPrime', '200-0', 'Autobots-Decepticons');
 ~~~
 
+- Para iniciar la base de datos de mySQL en su puerto predeterminado
+
+`sudo mysql -h localhost -u adritake -p adritakepassword  porra`
+
+- Una vez inicializado todo hay que ejecutar el programa usando el comando 'node index.js' y accediendo desde el navegador a la página [http://localhost:8000/]
+
+Solo se ha probado con una base de datos mySQL pero se podría operar con otro tipo de bases de datos sin problema siempre que se acceda correctamente desde el código javascript
+
+
