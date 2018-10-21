@@ -45,6 +45,25 @@ Ya se ha creado para el ejercicio anterior, ver [package.json](ProgramaPorra/pac
 
 - Instala sbt siguiendo estos [pasos](https://www.scala-sbt.org/download.html).
 
+- En el directorio del proyecto ejecutar sbt con el comando `sbt` en mi caso como uso un JDK 10 tengo que usar el comando `sbt -sbt-version 0.13.17` para que sea compatible.
+
+- Ejecutar los comandos que aparecen en el [repositorio](https://github.com/JJ/spray-test) para aprender su funcionamiento.
+
+- Para poder ejecutar la orden curl: `sudo apt-get install curl`.
+
+## Ejercicio 5. Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga (vamos, lo que viene siendo TDD).
+
+- Se ha añadido en el programa la linea `assert(!err);` para comprobar que la conexión a la base de datos se ha hecho correctamente.
+
+## Ejercicio 7. Haced los dos primeros pasos antes de pasar al tercero.
+
+- Se ha dado de alta en [Travis](https://travis-ci.org/).
+
+- Se ha activado el repositorio [EjerciciosCC](https://github.com/adritake/EjerciciosCC).
+
+- Se ha creado el archivo .travis.yml en el repositorio.
+
+
 
 
 
