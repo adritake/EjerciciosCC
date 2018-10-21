@@ -1,6 +1,7 @@
 
 var http = require("http");
 var url = require("url");
+var assert= require("assert");
  
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
@@ -13,6 +14,8 @@ var connection = mysql.createConnection({
 var resultado = "NADA AUN";
 
 connection.query('SELECT * from porras', function(err, rows, fields) {
+		
+		  assert(!err);
 		  if (!err){
 		    console.log('The solution is: ', rows);
 		    resultado = rows[0].nombre +' '+ rows[0].apuesta +' '+ rows[0].partido;
