@@ -102,7 +102,7 @@ Ya se ha realizado en el ejercicio 2.
 - Instalar foreman con este [tutorial](https://www.theforeman.org/manuals/1.19/index.html#2.1Installation).
 - Ejecutar `sudo apt-get install ruby-foreman`
 - Crear el archivo _Procfile_ en la aplicación e incluirle `web: node app.js`
-- Por alguna razón que no logro solucionar no consigo instalar correctamente _foreman-installer_ y cuando ejecuto `foreman start web` me dice que no reconoce el comando `node app.js`
+- Por alguna razón no consigo instalar correctamente _foreman-installer_ y cuando ejecuto `foreman start web` me dice que no reconoce el comando `node app.js`
 
 
 
