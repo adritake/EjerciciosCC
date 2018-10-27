@@ -21,7 +21,7 @@
 - `heroku open` para abrir acceder a la aplicación con el buscador.
 - Tras numerosos problemas con dependecias y la version de python no he sido capaz de desplegar la aplicación localmente. Sin embargo si he podido desplegarla en heroku.
 
-## Ejercicio3.Realizar una app en express (o el lenguaje y marco elegido) que incluya variables como en el caso anterior.
+## Ejercicio3. Realizar una app en express (o el lenguaje y marco elegido) que incluya variables como en el caso anterior.
 
 - Creamos la app con: `express ejercicio3`.
 - `cd` al archivo creado.
@@ -66,4 +66,31 @@ app.listen(app.get('port'),
 
 - Para usar la orden PUT hay que ejecutar el programa con `node app.js` y luego escribir en otra terminal la orden `curl -X PUT http://127.0.0.1:5000/Adrian/4`.
 - Para usar la orden GET se ejecuta el programa de igual manera que en el punto anterior y se buscar en el explorador [http://localhost:5000/ejercicio](http://localhost:5000/ejercicio).
+
+
+## Ejercicio4. Crear pruebas para las diferentes rutas de la aplicación.
+
+- Creamos la app con: `express ejercicio4`.
+- `cd` al archivo creado.
+- Usamos `npm install` para instalar las dependencias.
+- El código de _app.js_ es igual al ejercicio 3.
+- Instalamos supertest con `npm install supertest --save-dev`
+- Creamos el directorio /test y dentro de el creamos un archivo llamado _mitest.js_ el cual tiene el siguiente código:
+
+~~~
+var request = require('supertest'),
+app = require('../app.js');
+
+describe( "PUT ejercicio3", function() {
+	it('should create', function (done) {
+	request(app)
+		.put('/ejercicio3/Adrian/4')
+		.expect('Content-Type', 'text/html; charset=utf-8')
+		.expect(200,done);
+	});
+});
+~~~
+
+- Una vez hecho esto ejecutamos el comando `mocha` en el directorio del programa para comprobar si pasa los tests.
+
 
