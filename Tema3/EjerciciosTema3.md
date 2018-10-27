@@ -93,4 +93,18 @@ describe( "PUT ejercicio3", function() {
 
 - Una vez hecho esto ejecutamos el comando `mocha` en el directorio del programa para comprobar si pasa los tests.
 
+## Ejercicio 5. Instalar y echar a andar tu primera aplicación en Heroku.
+
+Ya se ha realizado en el ejercicio 2.
+
+## Ejercicio 6. Usar como base la aplicación de ejemplo de heroku y combinarla con la aplicación en node que se ha creado anteriormente. Probarla de forma local con foreman. Al final de cada modificación, los tests tendrán que funcionar correctamente; cuando se pasen los tests, se puede volver a desplegar en heroku.
+
+- Instalar foreman con este [tutorial](https://www.theforeman.org/manuals/1.19/index.html#2.1Installation).
+- Ejecutar `sudo apt-get install ruby-foreman`
+- Crear el archivo _Procfile_ en la aplicación e incluirle `web: node app.js`
+- Por alguna razón que no logro solucionar no consigo instalar correctamente _foreman-installer_ y cuando ejecuto `foreman start web` me dice que no reconoce el comando `node app.js`
+
+
+
+
 
