@@ -104,6 +104,52 @@ Ya se ha realizado en el ejercicio 2.
 - Crear el archivo _Procfile_ en la aplicación e incluirle `web: node app.js`
 - Por alguna razón no consigo instalar correctamente _foreman-installer_ y cuando ejecuto `foreman start web` me dice que no reconoce el comando `node app.js`
 
+## Ejercicio 7. Haz alguna modificación a tu aplicación en node.js para Heroku, sin olvidar añadir los tests para la nueva funcionalidad, y configura el despliegue automático a Heroku usando Snap CI o alguno de los otros servicios, como Codeship, mencionados en StackOverflow
+
+- Snap CI no se encuentra disponible por lo que se va a probar con [codeship](https://elements.heroku.com/addons/codeship)
+- Para instalar el addon hay que seleccionar el proyecto pero pide introducir una tarjeta de crédito (cosa que de momento no voy a hacer)
+- Crear una aplicación de node.js con express: `express ejercicio7`
+- Usar este [tutorial](https://medium.com/@grantspilsbury/build-and-deploy-a-node-express-server-to-heroku-in-10-steps-70c936ab15dc) para crear una aplicación de node y subirla a heroku.
+- Seguir el [tutorial de wercker](https://devcenter.wercker.com/quickstarts/platforms/heroku/) para heroku.
+- Darse de alta en [wercker](https://www.oracle.com/corporate/acquisitions/wercker/).
+- Crear manualmente el archivo wercker.yml en el repositorio `touch wercker.yml`
+- Introducir en el archivo el siguiente texto:
+
+~~~
+# This references the default nodejs container from
+# the Docker Hub: https://registry.hub.docker.com/_/node/
+# Read more about containers on our dev center
+# http://devcenter.wercker.com/docs/containers/index.html
+box: node
+# This is the build pipeline. Pipelines are the core of wercker
+# Read more about pipelines on our dev center
+# http://devcenter.wercker.com/docs/pipelines/index.html
+
+build:
+  # The steps that will be executed on build
+  # Steps make up the actions in your pipeline
+  # Read more about steps on our dev center:
+  # http://devcenter.wercker.com/docs/steps/index.html
+  steps:
+    # A step that executes `npm install` command
+    - npm-install
+    # A step that executes `npm test` command
+    - npm-test
+
+    # A custom script step, name value is used in the UI
+    # and the code value contains the command that get executed
+    - script:
+        name: echo nodejs information
+        code: |
+          echo "node version $(node -v) running"
+          echo "npm version $(npm -v) running"
+~~~
+
+
+
+
+
+
 
 
 
