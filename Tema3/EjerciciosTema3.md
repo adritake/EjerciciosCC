@@ -145,6 +145,21 @@ build:
           echo "npm version $(npm -v) running"
 ~~~
 
+- `git add wercker.yml` y `git add profile` para añadir los archivos al repositorio.
+
+- Subimos los archivos a heroku con `git push heroku master`
+- En la página de [Wercker](https://app.wercker.com/applications/create) seleccionamos una nueva aplicacón en otro tipo de git y le damos el link de github de nuestra aplicación en heroku, en mi caso: `https://git.heroku.com/shrieking-broomstick-57252.git`
+- Te pide que subas la key publica al repositorio, para eso hay que guardar la key en un archivo y subirla al repositorio con `heroku keys:add <ruta_key>`.
+- Añadir el webhook que te indica con: `heroku webhooks:add -i api:dyno -l notify -u  <link_webhook>`
+- Me da error en la creación de la app y no sé cómo continuar. El resto consiste en crear un objetivo de despligue para que cuando hagamos push tenga que ser pasando por el build de wercker.
+
+## Ejercicio 8. Preparar la aplicación con la que se ha venido trabajando hasta este momento para ejecutarse en un PaaS, el que se haya elegido.
+
+- En lugar de trabajar con las aplicaciones anteriores se va a crear una nueva para tener un control de todas las aplicaciones creadas. `express Ejercicio8`.
+- Para subirla a Openshift se sigue este [tutorial](https://blog.openshift.com/run-your-nodejs-projects-on-openshift-in-two-simple-steps/).
+
+
+
 
 
 
