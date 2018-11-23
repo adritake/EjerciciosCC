@@ -5,7 +5,10 @@ Antes de nada para realizar estos ejercicios necesitamos mínimo una máquina vi
 
 A continuación vamos a crear una máquina virtual con Ubuntu 18.04 en virtualbox, para ello se ha seguido este [tutorial](https://linuxhint.com/install_ubuntu_18-04_virtualbox/).
 Es necesario abrir los puertos de la MV para poder conectarte vía SSH. Para ello hay que ir a: *Máquina > configuración > Red > Avanzadas > Reenvío de puertos*. Una vez allí hay que darle a añadir nueva regla de reenvío y rellenarla con estos datos:
-`Nombre:SSH Protocolo:TCP IP anfitrión:172.0.0.1 Puerto anfitrión:2222 IP invitado:10.0.2.15 Puerto invitado:22` (o los datos de tu máquina virtual)
+`Nombre:SSH Protocolo:TCP IP anfitrión:nada Puerto anfitrión:2222 IP invitado:nada Puerto invitado:22` Esto quiere decir que cualquier ip puede conectarse a tu máquina virtual por ese puerto (be careful)
+Además es necesario instalar el ssh server en la MV: `sudo apt-get install openssh-server`.
+
+Para evitar tener que escribir la contraseña cada vez que nos conectemos a la MV necesitamos copiar la clave de nuestra máquina principal a la MV. Si no tienes un par de claves, genera uno escribiendo en la consola: `ssh-keygen`. Ahora hay que copiar la clave pública a la MV, para ello: `ssh-copy-id -i ~/.ssh/id_rsa.pub <usuario>@localhost -p 2222`. Para ver si se ha hecho correctamente, ejecutar: `ssh -p 2222 <usuario>@localhost` y comprobar que se tiene acceso sin escribir la contraseña.
 
 ## Ejercicio 2. Desplegar los fuentes de una aplicación cualquiera, propia o libre, que se encuentre en un servidor git público en la máquina virtual Azure (o una máquina virtual local) usando ansible.
 
@@ -22,5 +25,18 @@ sudo apt-get install ansible
 - Lo siguiente es añadir la ip de la MV al archivo */etc/ansible/hosts*. Para ello hay que abrir el archivo con tu editor favorito y con permisos de súper usuario, en mi caso he usado `sudo gedit /etc/ansible/hosts`. Una vez en el archivo hay que incluir las siguientes líneas:
 ```
 [webservers]
-<IP de la MV>
+<NombreHost> ansible_port=2222 ansible_host=127.0.0.1 (el de tu MV)
+```
+- Para hacerle ping a la MV con ansible es necesario que tenga instalado python, en mi caso no lo tenía y he instalado la utilidad de python necesaria para esta tarea: `sudo apt-get install python-simplejson`.
+- Ahora es el momento de probar con ansible que la MV está desplegada, para ello ejecutar `ansible all -m ping -u adritake`. Si todo está correctamente, debería devolver:
+```json
+MIMV | SUCCESS => {
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "data": "pong"
+        }
+    },
+    "ping": "pong"
+}
 ```
