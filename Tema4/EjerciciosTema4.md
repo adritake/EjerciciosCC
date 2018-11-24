@@ -42,8 +42,6 @@ MIMV | SUCCESS => {
 ```
 - El último paso es desplegar una aplicación en la MV usando Ansible, en mi caso voy a desplegar mi [proyecto](https://github.com/adritake/CC_UGR_Personal.git) de Cloud Computing. Hay que crear un playbook para indicar todos los estados que tiene que alcanzar la MV. El playbook que he creado es el siguiente:
 
-<details><summary>MyPlayBook.yml</summary>
-<p>
 ```
 ---
 - hosts: webservers
@@ -84,15 +82,10 @@ MIMV | SUCCESS => {
       command: pm2 start {{ project_location }}/IssueBot.js
 
 ```
-</p>
-</details>
-
 
 - Para ejecutar el playbook hay que asegurarse de que la MV está funcionando y ejecutar en el ordenador principal: `ansible-playbook MyPlaybook.yml --ask-become-pass`. El comando *--as-become-pass* hace que te pregunte la contraseña para hacerse sudo en la MV.
 - Al ejecutar el playbook debería salir como respuesta:
 
-<details><summary>Respuesta</summary>
-<p>
 ```
 PLAY [webservers] **************************************************************
 
@@ -120,5 +113,3 @@ changed: [MIMV]
 PLAY RECAP *********************************************************************
 MIMV                       : ok=7    changed=6    unreachable=0    failed=0   
 ```
-</p>
-</details>
