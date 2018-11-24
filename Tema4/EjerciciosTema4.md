@@ -87,6 +87,7 @@ MIMV | SUCCESS => {
 </p>
 </details>
 
+
 - Para ejecutar el playbook hay que asegurarse de que la MV está funcionando y ejecutar en el ordenador principal: `ansible-playbook MyPlaybook.yml --ask-become-pass`. El comando *--as-become-pass* hace que te pregunte la contraseña para hacerse sudo en la MV.
 - Al ejecutar el playbook debería salir como respuesta:
 
