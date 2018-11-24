@@ -10,7 +10,7 @@ Además es necesario instalar el ssh server en la MV: `sudo apt-get install open
 
 Para evitar tener que escribir la contraseña cada vez que nos conectemos a la MV necesitamos copiar la clave de nuestra máquina principal a la MV. Si no tienes un par de claves, genera uno escribiendo en la consola: `ssh-keygen`. Ahora hay que copiar la clave pública a la MV, para ello: `ssh-copy-id -i ~/.ssh/id_rsa.pub <usuario>@localhost -p 2222`. Para ver si se ha hecho correctamente, ejecutar: `ssh -p 2222 <usuario>@localhost` y comprobar que se tiene acceso sin escribir la contraseña.
 
-## Ejercicio 2. Desplegar los fuentes de una aplicación cualquiera, propia o libre, que se encuentre en un servidor git público en la máquina virtual Azure (o una máquina virtual local) usando ansible.
+## Ejercicios 2 y 3. Desplegar los fuentes de una aplicación cualquiera, propia o libre, que se encuentre en un servidor git público en la máquina virtual Azure (o una máquina virtual local) usando ansible. Desplegar la aplicación que se haya usado anteriormente con todos los módulos necesarios usando un playbook de Ansible.
 
 Para realizar este ejercicio es necesario haber realizado el paso previo.
 
@@ -40,3 +40,84 @@ MIMV | SUCCESS => {
     "ping": "pong"
 }
 ```
+- El último paso es desplegar una aplicación en la MV usando Ansible, en mi caso voy a desplegar mi [proyecto](https://github.com/adritake/CC_UGR_Personal.git) de Cloud Computing. Hay que crear un playbook para indicar todos los estados que tiene que alcanzar la MV. El playbook que he creado es el siguiente:
+
+<details><summary>MyPlayBook.yml</summary>
+<p>
+```
+---
+- hosts: webservers
+  user: adritake
+
+  vars:
+    - packages: ["git","npm"]
+    - project_location: /home/adritake/projects
+
+  tasks:
+    - name: Install {{ packages }}
+      become: yes
+      become_user: root
+      apt:
+        name: "{{ packages }}"
+        state: present
+
+    - name: Create project location
+      file:
+        path: "{{ project_location }}"
+        state: directory
+
+    - name: Download repository
+      git:
+        repo: https://github.com/adritake/CC_UGR_Personal.git
+        dest: "{{ project_location}}"
+
+    - name: Install dependencies
+      npm:
+        path: "{{ project_location }}"
+
+    - name: Install pm2
+      become: yes
+      become_user: root
+      command: npm install pm2 -g
+
+    - name: Start service
+      command: pm2 start {{ project_location }}/IssueBot.js
+
+```
+</p>
+</details>
+
+- Para ejecutar el playbook hay que asegurarse de que la MV está funcionando y ejecutar en el ordenador principal: `ansible-playbook MyPlaybook.yml --ask-become-pass`. El comando *--as-become-pass* hace que te pregunte la contraseña para hacerse sudo en la MV.
+- Al ejecutar el playbook debería salir como respuesta:
+
+<details><summary>Respuesta</summary>
+<p>
+```
+PLAY [webservers] **************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [MIMV]
+
+TASK [Install [u'git', u'npm']] ************************************************
+changed: [MIMV]
+
+TASK [Create project location] *************************************************
+changed: [MIMV]
+
+TASK [Download repository] *****************************************************
+changed: [MIMV]
+
+TASK [Install dependencies] ****************************************************
+changed: [MIMV]
+
+TASK [Install pm2] *************************************************************
+changed: [MIMV]
+
+TASK [Start service] ***********************************************************
+changed: [MIMV]
+
+PLAY RECAP *********************************************************************
+MIMV                       : ok=7    changed=6    unreachable=0    failed=0   
+```
+</p>
+</details>
