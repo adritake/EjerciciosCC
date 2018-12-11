@@ -1,0 +1,58 @@
+---
+- hosts: webservers
+  user: adritake
+
+  vars:
+    - packages: ["git","npm","screen"]
+    - project_location: /home/adritake/projects
+
+  tasks:
+    - name: Install {{ packages }}
+      become: yes
+      become_user: root
+      apt:
+        name: "{{ packages }}"
+        state: present
+
+    - name: Download script nodejs
+      become: yes
+      become_user: root
+      command:
+        curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
+
+    - name: Exectue script nodejs
+      become: yes
+      become_user: root
+      command:
+        sudo bash nodesource_setup.sh
+
+    - name: Install nodejs
+      become: yes
+      become_user: root
+      apt:
+        name: nodejs
+        state: present
+
+    - name: Create project location
+      file:
+        path: "{{ project_location }}"
+        state: directory
+
+    - name: Download repository
+      git:
+        repo: https://github.com/adritake/CC_UGR_Personal.git
+        dest: "{{ project_location}}"
+
+    - name: Install dependencies
+      npm:
+        path: "{{ project_location }}"
+
+    - name: Redirect port 80
+      become: yes
+      become_user: root
+      command:
+        iptables -t nat -A PREROUTING -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 5000
+
+
+    - name: Start service
+      command: screen node {{ project_location }}/IssueService.js

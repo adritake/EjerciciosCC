@@ -22,3 +22,19 @@ Confirm password: ***************
 - Instalamos nginx con `sudo apt-get install nginx`
 - Nota: si no se tiene conexión a internet en la máquina hay que abrir el puerto 80 con `sudo ufw allow http` y el puerto 443 con `sudo ufw allow https`
 - Una vez instalado nginx si accedemos mediante un explorador a http://40.89.153.58/ (ip de la MV) debería aparecer un mensaje de bienvenida.
+
+## Ejercicio 2.Crear una instancia de una máquina virtual Debian y provisionarla usando alguna de las aplicaciones vistas en el tema sobre herramientas de aprovisionamiento
+
+- Seguimos las instrucciones de instalación del CLI de Azure proporcionadas por la [documentación de Microsoft](https://docs.microsoft.com/es-es/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+- Usamos `az login` para loguearnos. Te redigirá al explorador.
+- Instalamos jq para poder hacer queries a objetos JSON: `sudo apt-get install jq`
+- Al igual que en el ejercicio anterior creamos un grupo de recursos con `az group create -l francecentral -n grupoTema5` y debería devolver un objeto JSON que contenga una clave "provisioningState" cuyo valor sea "Succeeded".
+- El comando para crear la MV es el siguiente: `az vm create --resource-group grupoTema5 --name MVEje2 --image credativ:Debian:8:latest --generate-ssh-keys --output json --verbose`. Esto creará una MV con el grupo de recursos *grupoTema5*, con una imagen Debian y se copiará la clave pública alojada en id_rsa para poder conectarnos a la MV mediante ssh.
+- El paso anterior deberá devolver una JSON donde aparecerá la IP pública de la MV. Vamos a comprobar el estado de la MV conectandonos mediante ssh a ella. `ssh 40.89.153.243` no es necesario dar un usuario puesto que accedemos mediante clave privada.
+- Vamos a provisionar la MV con Ansible, para ello añadimos al archivo */etc/ansible/hosts* las siguientes líneas:
+```
+[webservers]
+MIMV ansible_host=40.89.153.243
+```
+- Usamos una playbook parecido al de mi repositorio de la asignatura solo que con algunas adaptaciones para debian. [PlayBook](./MyPlaybook.yml).
+- Ejecutamos `ansible-playbook MyPlaybook.yml` y una vez se ha instalado todo podemos acceder al servicio desde el explorador en http://40.89.155.89/
