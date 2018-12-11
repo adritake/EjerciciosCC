@@ -36,5 +36,5 @@ Confirm password: ***************
 [webservers]
 MIMV ansible_host=40.89.153.243
 ```
-- Usamos una playbook parecido al de mi repositorio de la asignatura solo que con algunas adaptaciones para debian. [PlayBook](./MyPlaybook.yml).
+- Usamos una playbook parecido al de mi repositorio de la asignatura solo que con algunas adaptaciones para la imagen de Debian 8 ya que tenia algunas versiones antiguas. [PlayBook](./MyPlaybook.yml).
 - Ejecutamos `ansible-playbook MyPlaybook.yml` y una vez se ha instalado todo podemos acceder al servicio desde el explorador en http://40.89.155.89/
