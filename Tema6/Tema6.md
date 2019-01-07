@@ -10,3 +10,18 @@ También es necesario tener instalado virtual box.
 - `vagrant up` para crear la MV con esa imagen en Virtual Box.
 - Para conectarte con ssh a la MV basta con escribir `vagrant ssh`. Yo he obtenido lo siguiente:
 ![vagrant shh](./img/vagrantssh.png)
+
+## Ejercicios 3 y 4. Crear un script para provisionar de forma básica una máquina virtual para el proyecto que se esté llevando a cabo en la asignatura. Configurar tu máquina virtual usando vagrant con el provisionador ansible
+
+No se ha creado el script puesto que hay que modificar el vagrant file para que provisione con ansible. Se ha hecho lo siguiente:
+
+- Inicializar vagrant con una imagen de ubuntu: `vagrant init ubuntu/trusty64`.
+- Se modifica e vagrant file añadiendo las siguientes líneas:
+```
+config.vm.provision "ansible" do |ansible|
+    ansible.verbose = "v"
+    ansible.playbook = "playbook.yml"
+end
+```
+- Creamos la vm y la provisionamos con `vagrant up`
+- Tras mucho rato la máquina se ha provisionado correctamente.
