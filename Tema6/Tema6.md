@@ -16,7 +16,7 @@ También es necesario tener instalado virtual box.
 No se ha creado el script puesto que hay que modificar el vagrant file para que provisione con ansible y no sé como solucionarlo. Se ha hecho lo siguiente:
 
 - Inicializar vagrant con una imagen de ubuntu: `vagrant init ubuntu/trusty64`.
-- Se usa el [playbook](https://github.com/adritake/CC_UGR_Personal/blob/master/provision/MyPlaybook.yml) de mi repositorio de la asignatura
+- Se usa el [playbook](https://github.com/adritake/CC_UGR_Personal/blob/master/provision/MyPlaybook.yml) de mi repositorio de la asignatura solo que he tenido que ponerle que haga todo con permisos de super usuario.
 - Se modifica e vagrant file añadiendo las siguientes líneas:
 ```
 config.vm.provision "ansible" do |ansible|
