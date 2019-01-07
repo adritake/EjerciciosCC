@@ -13,9 +13,10 @@ También es necesario tener instalado virtual box.
 
 ## Ejercicios 3 y 4. Crear un script para provisionar de forma básica una máquina virtual para el proyecto que se esté llevando a cabo en la asignatura. Configurar tu máquina virtual usando vagrant con el provisionador ansible
 
-No se ha creado el script puesto que hay que modificar el vagrant file para que provisione con ansible. Se ha hecho lo siguiente:
+No se ha creado el script puesto que hay que modificar el vagrant file para que provisione con ansible y no sé como solucionarlo. Se ha hecho lo siguiente:
 
 - Inicializar vagrant con una imagen de ubuntu: `vagrant init ubuntu/trusty64`.
+- Se usa el [playbook](https://github.com/adritake/CC_UGR_Personal/blob/master/provision/MyPlaybook.yml) de mi repositorio de la asignatura
 - Se modifica e vagrant file añadiendo las siguientes líneas:
 ```
 config.vm.provision "ansible" do |ansible|
